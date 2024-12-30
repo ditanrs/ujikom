@@ -8,7 +8,7 @@
     <div class="grid md:grid-cols-2 grid-cols-1 pt-10 md:pt-20 bg-blue-700 mt-10 px-4 md:px-8 gap-8 pb-10">
       <div class="flex flex-col items-center">
         <div class="w-full max-w-md flex flex-col items-center space-y-2">
-          <img src="~/assets/img/kepalasekolah.png" alt="Kepala Sekolah" class="" />
+          <img src="~/assets/img/kepalasekolah.png" alt="Kepala Sekolah" />
           <div class="text-center">
             <h3 class="text-lg md:text-xl font-semibold text-gray-100">Kurniawan, S.Pd, M.Pd.</h3>
             <p class="text-gray-200">Kepala Sekolah</p>
@@ -35,7 +35,7 @@
     <!-- informasi jumlah guru siswa -->
     <Informasi />
     <!-- berita -->
-    <div class="min-h-screen bg-blue-700">
+    <div class="bg-blue-700">
       <section class="py-16 px-4">
         <div class="max-w-6xl mx-auto">
           <div class="text-center mb-12">
@@ -87,8 +87,8 @@
       </section>
     </div>
     <!-- Galeri -->
-    <div class="min-h-screen">
-      <section class="py-16 px-4 bg-white">
+    <div class="bg-blue-100">
+      <section class="py-16 px-4">
         <div class="max-w-6xl mx-auto">
           <div class="text-center mb-12">
             <h2 class="text-3xl font-bold text-blue-700 mb-2">Galeri</h2>
