@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div>
     <section class="py-16 px-4 bg-blue-700">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12 mt-10">
@@ -7,10 +7,8 @@
           <div class="w-20 h-1 bg-sky-300 mx-auto rounded-full"></div>
         </div>
         <div class="grid md:grid-cols-2 gap-6">
-          <!-- Contact Information Card -->
           <div class="bg-white/90 backdrop-blur rounded-lg p-6 shadow-md">
             <div class="space-y-6">
-              <!-- Address -->
               <div class="flex items-start space-x-4">
                 <div class="p-2 bg-sky-100 rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,7 +22,6 @@
                 </div>
               </div>
 
-              <!-- Email -->
               <div class="flex items-start space-x-4">
                 <div class="p-2 bg-sky-100 rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,7 +34,6 @@
                 </div>
               </div>
 
-              <!-- Phone -->
               <div class="flex items-start space-x-4">
                 <div class="p-2 bg-sky-100 rounded-full">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -55,8 +51,7 @@
                 </div>
               </div>
 
-              <!-- Map Placeholder -->
-              <!-- <div class="mt-6">
+              <div class="mt-6">
                 <div class="w-full h-64 bg-gray-200 rounded-lg">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2131162969818!2d108.254474!3d-7.329945299999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f59eeb6bda36f%3A0xa9e724a275da6c2d!2sSMK%20Negeri%204%20Tasikmalaya!5e0!3m2!1sid!2sid!4v1735360836269!5m2!1sid!2sid"
@@ -67,36 +62,34 @@
                     referrerpolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
-              </div> -->
+              </div>
             </div>
           </div>
 
-          <!-- Contact Form Card -->
           <div class="bg-white/90 backdrop-blur rounded-lg p-6 shadow-md">
             <form @submit.prevent="kirimData" class="space-y-4">
-              <!---->
               <div class="grid md:grid-cols-2 gap-4">
                 <div class="space-y-2">
                   <label class="block text-sm font-medium">Nama Anda</label>
-                  <!---->
+
                   <input v-model="form.nama" type="text" placeholder="Masukkan nama anda" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500" />
                 </div>
                 <div class="space-y-2">
                   <label class="block text-sm font-medium">Email Anda</label>
-                  <!-- -->
+
                   <input v-model="form.email" type="email" placeholder="Masukkan email anda" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500" />
                 </div>
               </div>
 
               <div class="space-y-2">
                 <label class="block text-sm font-medium">Subjek</label>
-                <!---->
+
                 <input v-model="form.subjek" type="text" placeholder="Masukkan subjek pesan" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500" />
               </div>
 
               <div class="space-y-2">
                 <label class="block text-sm font-medium">Isi Pesan</label>
-                <!---->
+
                 <textarea v-model="form.pesan" placeholder="Tulis pesan anda disini" class="w-full h-40 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
               </div>
 

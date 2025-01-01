@@ -1,13 +1,11 @@
 <template>
   <div class="relative w-full h-screen overflow-hidden">
-    <!-- Video Container -->
     <div class="absolute inset-0">
       <video class="w-full h-full object-cover pointer-events-none" autoplay loop muted playsinline>
-        <source src="~/assets/video/vid.mp4" type="video/mp4" />
+        <source src="~/assets/video/smk.mp4" type="video/mp4" />
       </video>
     </div>
 
-    <!-- Overlay with Text -->
     <div class="relative z-10 h-full bg-black bg-opacity-50">
       <div class="flex items-center justify-center h-full">
         <div class="text-white text-center px-4">
@@ -15,6 +13,7 @@
           <h2 class="font-semibold text-lg md:text-xl lg:text-2xl">Di Website SMK Negeri 4 Tasikmalaya</h2>
         </div>
       </div>
+      <Sosmed />
     </div>
   </div>
 </template>

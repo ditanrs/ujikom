@@ -1,12 +1,12 @@
 <template>
   <div>
-    <section class="py-8 md:py-16 px-4 bg-blue-700">
+    <section class="py-16 px-4 bg-blue-100">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-8 md:mb-12 mt-5 md:mt-10">
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Ekstrakurikuler</h2>
+        <div class="text-center mb-12 mt-10">
+          <h2 class="text-3xl font-bold text-blue-700 mb-2">Galeri</h2>
           <div class="w-20 h-1 bg-sky-300 mx-auto rounded-full"></div>
         </div>
-
+        <!-- loadingnya -->
         <div v-if="loading" class="flex items-center justify-center mb-5">
           <div role="status">
             <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,14 +23,13 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 gap-6 px-4 sm:px-8 md:px-16 lg:px-56">
-          <div v-for="(ekskul, i) in eskul" :key="i" class="bg-white bg-opacity-20 rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:bg-blue-500 hover:shadow-md">
-            <div class="flex flex-col sm:flex-row h-auto sm:h-48">
-              <div class="w-full sm:w-1/3 h-48 sm:h-full flex-shrink-0">
-                <img :src="ekskul.foto" alt="foto" class="w-full sm:w-40 h-full object-cover" />
-              </div>
-              <div class="p-4 sm:w-2/3 flex items-center">
-                <h3 class="text-xl sm:text-2xl font-semibold text-white line-clamp-3">{{ ekskul.ket }}</h3>
+        <!-- card galeri -->
+        <div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div v-for="(foto, i) in displayGaleri" :key="i" class="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+              <img :src="foto.foto" alt="gambar" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300" />
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                <h3 class="text-white text-xl font-semibold">{{ foto.ket }}</h3>
               </div>
             </div>
           </div>
@@ -41,29 +40,37 @@
 </template>
 
 <script setup>
-useHead({
-  title: "Ekstrakurikuler",
-  meta: [
-    {
-      name: "description",
-      content: "Ekskul Page",
-    },
-  ],
+const props = defineProps({
+  isHomePage: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const supabase = useSupabaseClient();
 const loading = ref(true);
-const eskul = ref([]);
+const galeri = ref([]);
 
-const getEskul = async () => {
+const getGaleri = async () => {
   loading.value = true;
-  const { data, error } = await supabase.from("eskul").select("*");
+  const query = supabase.from("galeri").select("*");
+
+  if (props.isHomePage) {
+    query.limit(3);
+  }
+
+  const { data, error } = await query;
+
   if (data) {
-    eskul.value = data;
+    galeri.value = data;
     loading.value = false;
   }
   if (error) throw error;
 };
 
-onMounted(() => getEskul());
+const displayGaleri = computed(() => {
+  return props.isHomePage ? galeri.value.slice(0, 3) : galeri.value;
+});
+
+onMounted(() => getGaleri());
 </script>
